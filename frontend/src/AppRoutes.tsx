@@ -7,6 +7,8 @@ import PurchasesPage from './pages/PurchasesPage';
 import PurchaseDetailPage from './pages/PurchaseDetailPage';
 import InventoryStatisticsPage from './pages/InventoryStatisticsPage';
 import ProtectedRoute from './auth/ProtectedRoute';
+import RecommendedRecipesPage from './pages/RecommendedRecipesPage';
+import RecipeDetailPage from './pages/RecipeDetailPage';
 
 const AppRoutes = () => {
   return (
@@ -64,6 +66,23 @@ const AppRoutes = () => {
           }
         />
       </Route>
+
+      <Route
+        path="/recipes/recommended"
+        element={
+          <Layout>
+            <RecommendedRecipesPage />
+          </Layout>
+        }
+      />
+      <Route
+        path="/recipes/:id"
+        element={
+          <Layout>
+            <RecipeDetailPage />
+          </Layout>
+        }
+      />
 
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>

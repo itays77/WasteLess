@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import myUserRoute from './routes/MyUserRoute';
 import inventoryRoute from './routes/InventoryRoute';
 import purchaseRoute from './routes/PurchaseRoute';
+import recipeRoutes from './routes/RecipeRoute';
 import path from 'path';
 
 mongoose
@@ -28,6 +29,7 @@ if (!fs.existsSync(uploadsDir)) {
 app.use('/api/my/user', myUserRoute);
 app.use('/api/inventory', inventoryRoute);
 app.use('/api/purchases', purchaseRoute);
+app.use('/api/recipes', recipeRoutes);
 
 // Health check route
 app.get('/health', (req: Request, res: Response) => {

@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import { useGetInventoryStats } from '../api/InventoryApi';
-import { CircleUserRound, Package, ShoppingBag } from 'lucide-react';
+import { CircleUserRound, Package, ShoppingBag, ChefHat } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,7 +10,6 @@ import {
 } from '../components/ui/dropdown-menu';
 import { Separator } from '../components/ui/separator';
 import { Button } from '../components/ui/button';
-
 
 const Header = () => {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
@@ -56,12 +55,11 @@ const Header = () => {
                   <Package className="h-5 w-5" />
                   <span>My Inventory</span>
                 </div>
-              {expiringItemsCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-yellow-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  {expiringItemsCount}
-                </span>
-              )}
-                
+                {expiringItemsCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-yellow-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                    {expiringItemsCount}
+                  </span>
+                )}
               </Link>
 
               <Link
@@ -71,6 +69,16 @@ const Header = () => {
                 <div className="flex items-center gap-2">
                   <ShoppingBag className="h-5 w-5" />
                   <span>Purchases</span>
+                </div>
+              </Link>
+
+              <Link
+                to="/recipes/recommended"
+                className="text-gray-600 hover:text-green-700 font-medium"
+              >
+                <div className="flex items-center gap-2">
+                  <ChefHat className="h-5 w-5" />
+                  <span>Recipes</span>
                 </div>
               </Link>
 
